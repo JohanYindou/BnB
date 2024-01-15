@@ -33,7 +33,7 @@ class Room
     private ?int $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $cover = null;
+    private ?string $cover = '/images/room-cover.jpg';
 
     public function getId(): ?int
     {
