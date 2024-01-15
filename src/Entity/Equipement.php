@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\EquipmentRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Room;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EquipementRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
-#[ORM\Entity(repositoryClass: EquipmentRepository::class)]
-class Equipment
+#[ORM\Entity(repositoryClass: EquipementRepository::class)]
+class Equipement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -18,7 +19,7 @@ class Equipment
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Room::class, inversedBy: 'equipment')]
+    #[ORM\ManyToMany(targetEntity: Room::class, inversedBy: 'equipement')]
     private Collection $rooms;
 
     public function __construct()

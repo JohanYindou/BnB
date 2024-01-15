@@ -44,8 +44,8 @@ class Room
     #[ORM\OneToMany(mappedBy: 'rooms', targetEntity: Review::class, orphanRemoval: true)]
     private Collection $reviews;
 
-    #[ORM\ManyToMany(targetEntity: Equipment::class, mappedBy: 'rooms')]
-    private Collection $equipment;
+    #[ORM\ManyToMany(targetEntity: Equipement::class, mappedBy: 'rooms')]
+    private Collection $equipement;
 
     #[ORM\OneToMany(mappedBy: 'room', targetEntity: Booking::class, orphanRemoval: true)]
     private Collection $bookings;
@@ -53,7 +53,7 @@ class Room
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
-        $this->equipment = new ArrayCollection();
+        $this->equipement = new ArrayCollection();
         $this->bookings = new ArrayCollection();
     }
 
@@ -190,27 +190,27 @@ class Room
     }
 
     /**
-     * @return Collection<int, Equipment>
+     * @return Collection<int, Equipement>
      */
-    public function getEquipment(): Collection
+    public function getEquipement(): Collection
     {
-        return $this->equipment;
+        return $this->equipement;
     }
 
-    public function addEquipment(Equipment $equipment): static
+    public function addEquipement(Equipement $equipement): static
     {
-        if (!$this->equipment->contains($equipment)) {
-            $this->equipment->add($equipment);
-            $equipment->addRoom($this);
+        if (!$this->equipement->contains($equipement)) {
+            $this->equipement->add($equipement);
+            $equipement->addRoom($this);
         }
 
         return $this;
     }
 
-    public function removeEquipment(Equipment $equipment): static
+    public function removeEquipement(Equipement $equipement): static
     {
-        if ($this->equipment->removeElement($equipment)) {
-            $equipment->removeRoom($this);
+        if ($this->equipement->removeElement($equipement)) {
+            $equipement->removeRoom($this);
         }
 
         return $this;
