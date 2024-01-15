@@ -35,6 +35,10 @@ class Room
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cover = '/images/room-cover.jpg';
 
+    #[ORM\ManyToOne(inversedBy: 'rooms')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $host = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +124,18 @@ class Room
     public function setCover(?string $cover): static
     {
         $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getHost(): ?User
+    {
+        return $this->host;
+    }
+
+    public function setHost(?User $host): static
+    {
+        $this->host = $host;
 
         return $this;
     }
