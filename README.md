@@ -31,9 +31,9 @@ This entity represents a booking made by a traveler to a room.
 | room       | ManyToOne | NULL, OrphanTrue     | Room     |
 | review     | OneToOne  | NULL, OrphanTrue     | Review   |
 
-### Equipment
+### Equipement
 
-This entity represents the equipments for a room.
+This entity represents the equipements for a room.
 
 | Property | Type       | Description | Relation |
 | -------- | ---------- | ----------- | -------- |
