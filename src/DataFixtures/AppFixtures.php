@@ -7,6 +7,7 @@ use App\Entity\Room;
 use App\Entity\User;
 use App\Entity\Review;
 use App\Entity\Equipement;
+use App\Entity\Favorite;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -17,7 +18,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         // Set admin
-        $admin = new User;
+        $admin = new User();
         $admin->setEmail('admin@admin.fr')
             ->setRoles(['ROLE_ADMIN'])
             ->setFirstname('Admin')
@@ -70,6 +71,13 @@ class AppFixtures extends Fixture
                 ->setHost($faker->randomElement($hosts))
                 ->setPrice($faker->numberBetween(150, 1500));
 
+            // Add favorites to admin
+            if ($i < 10) {
+                $favorite = new Favorite();
+                $favorite->setTraveler($admin)
+                    ->addRoom($room);
+                $manager->persist($favorite);
+            }
 
             // Set users with favorites
             if ($i > 70) {
@@ -85,6 +93,12 @@ class AppFixtures extends Fixture
                     ->setCity($faker->city)
                     ->setCountry($faker->country);
                 $manager->persist($user);
+
+                // Add favorites to users
+                $favorite = new Favorite();
+                $favorite->setTraveler($user)
+                    ->addRoom($room);
+                $manager->persist($favorite);
 
                 // Set Reviews
                 $review = new Review();
