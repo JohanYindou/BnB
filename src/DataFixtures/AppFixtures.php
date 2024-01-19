@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         // Set admin
-        $admin = new User();
+        $admin = new User;
         $admin->setEmail('admin@admin.fr')
             ->setRoles(['ROLE_ADMIN'])
             ->setFirstname('Admin')
@@ -70,10 +70,6 @@ class AppFixtures extends Fixture
                 ->setHost($faker->randomElement($hosts))
                 ->setPrice($faker->numberBetween(150, 1500));
 
-            // Add favorites to admin
-            if ($i < 10) {
-                $admin->addFavorite($room);
-            }
 
             // Set users with favorites
             if ($i > 70) {
@@ -87,8 +83,7 @@ class AppFixtures extends Fixture
                     ->setImage(rand(0, 1) ? '/images/default-1.jpg' : '/images/default-2.jpg')
                     ->setAddress($faker->address)
                     ->setCity($faker->city)
-                    ->setCountry($faker->country)
-                    ->addFavorite($room);
+                    ->setCountry($faker->country);
                 $manager->persist($user);
 
                 // Set Reviews
