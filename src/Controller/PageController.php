@@ -11,17 +11,8 @@ class PageController extends AbstractController
     #[Route('/', name: 'paris')]
     public function index(): Response
     {
-        return $this->render('page/index.html.twig', [
+        return $this->render('page/city.html.twig', [
 
-        ]);
-    }
-
-    // Test route for designing the confirmation email
-    #[Route('/email', name: 'email')]
-    public function email(): Response
-    {
-        return $this->render('registration/confirmation_email.html.twig', [
-            // 'signedUrl' => 'https://example.com/signed-url',
         ]);
     }
 }
