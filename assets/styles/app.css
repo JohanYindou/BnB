@@ -1,6 +1,25 @@
+:root{
+     --custom-main:#FE1F60;
+     --custom-secondary: #831ef8;
+     --custom-dark: #101010;
+}
+/* Custom form bootstrap*/
+.btn-custom {
+    background-color: var(--custom-main);
+    color: #fff;
+}
+.btn-custom:hover, .btn-custom:focus {
+    background-color: var(--custom-secondary);
+        color: #fff;
+}
+
+bg-dark{
+    background-color: var(--custom-dark) !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
    font-family: 'Libre Franklin', sans-serif;
-   font-weight: 700;
+   font-weight: 900;
 }
 
 body {
@@ -26,4 +45,60 @@ img:hover{
     -moz-transition: all 600ms ease-out;
     -ms-transition: all 600ms ease-out;
     -o-transition: all 600ms ease-out;
+}
+
+.paris {
+    background-image: url('/images/paris.jpg');
+}
+.kyoto {
+    background-image: url('/images/kyoto.jpg');
+}
+.lasvegas {
+    background-image: url('/images/las-vegas.jpg');
+}
+.sydney {
+    background-image: url('/images/sydney.jpg');
+}
+.hongkong {
+    background-image: url('/images/hong-kong.jpg');
+}
+
+.hongkong,.paris,.kyoto,.lasvegas,.sydney {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Title & Subtitle */
+
+.title, .subtitle {
+    font-family: 'Libre Franlin', sans-serif;
+    font-size: 8vw;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.subtitle{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .25vw;
+    -webkit-text-stroke-color: #fff;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+}
+.subtitle-reverse{
+    transform:inherit;
+    -webkit-transform:inherit;
+    -moz-transform:inherit;
+    -ms-transform:inherit;
+    -o-transform:inherit;
+}
+
+/* Footer */
+
+footer{
+    position: fixed;
+    bottom: 2rem;
 }
