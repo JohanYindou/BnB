@@ -52,7 +52,7 @@ This entity represents a room for rent.
 | host        | ManyToOne  | NOT NULL, OrphanTrue | User      |
 | bookings    | OneToMany  |                      | Booking   |
 | reviews     | OneToMany  |                      | Review    |
-| equipments  | ManyToMany |                      | Equipment |
+| equipements  | ManyToMany |                      | Equipement |
 
 ---
 
@@ -89,9 +89,9 @@ This entity represents a booking made by a traveler to a room.
 
 ---
 
-### Equipment
+### Equipement
 
-This entity represents the equipments for a room.
+This entity represents the equipements for a room.
 
 | Property | Type       | Description | Relation |
 | -------- | ---------- | ----------- | -------- |

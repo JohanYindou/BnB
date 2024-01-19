@@ -9,10 +9,10 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Equipement>
  *
- * @method Equipment|null find($id, $lockMode = null, $lockVersion = null)
- * @method Equipment|null findOneBy(array $criteria, array $orderBy = null)
- * @method Equipment[]    findAll()
- * @method Equipment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Equipement|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Equipement|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Equipement[]    findAll()
+ * @method Equipement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class EquipementRepository extends ServiceEntityRepository
 {
@@ -22,7 +22,7 @@ class EquipementRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return Equipment[] Returns an array of Equipement objects
+    //     * @return Equipement[] Returns an array of Equipement objects
     //     */
     //    public function findByExampleField($value): array
     //    {

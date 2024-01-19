@@ -6,7 +6,6 @@ use Faker\Factory;
 use App\Entity\Room;
 use App\Entity\User;
 use App\Entity\Review;
-use App\Entity\Equipment;
 use App\Entity\Equipement;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -48,14 +47,14 @@ class AppFixtures extends Fixture
             array_push($hosts, $host);
         }
 
-        // Set equipments
-        $equipments = ['wifi', 'tv', 'climatiseur', 'lave-linge', 'lave-vaisselle', 'piscine', 'jacuzzi', 'parking'];
-        $equipmentArray = [];
-        for ($i = 0; $i < count($equipments); $i++) {
-            $equipment = new Equipement();
-            $equipment->setName($equipments[$i]);
-            $manager->persist($equipment);
-            array_push($equipmentArray, $equipment);
+        // Set equipements
+        $equipements = ['wifi', 'tv', 'climatiseur', 'lave-linge', 'lave-vaisselle', 'piscine', 'jacuzzi', 'parking'];
+        $equipementArray = [];
+        for ($i = 0; $i < count($equipements); $i++) {
+            $equipement = new Equipement();
+            $equipement->setName($equipements[$i]);
+            $manager->persist($equipement);
+            array_push($equipementArray, $equipement);
         }
 
         // Set rooms
@@ -65,8 +64,8 @@ class AppFixtures extends Fixture
             $room = new Room();
             $room->setTitle($faker->text(50))
                 ->setCity($faker->randomElement($cities))
-                ->addEquipement($faker->randomElement($equipmentArray))
-                ->addEquipement($faker->randomElement($equipmentArray))
+                ->addEquipement($faker->randomElement($equipementArray))
+                ->addEquipement($faker->randomElement($equipementArray))
                 ->setDescription($faker->paragraphs(3, true))
                 ->setHost($faker->randomElement($hosts))
                 ->setPrice($faker->numberBetween(150, 1500));
