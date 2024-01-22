@@ -8,13 +8,17 @@
     background-color: var(--custom-main);
     color: #fff;
 }
-.btn-custom:hover, .btn-custom:focus {
+.btn-custom:hover, .btn-custom:focus,.btn-custom:active {
     background-color: var(--custom-secondary);
         color: #fff;
 }
 
 bg-dark{
     background-color: var(--custom-dark) !important;
+}
+
+.text-main {
+    color: var(--custom-main) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,43 +31,32 @@ body {
    font-weight: 300;
 }
 
-img{
-    transition: all 500ms ease-in;
-    -webkit-transition: all 500ms ease-in;
-    -moz-transition: all 500ms ease-in;
-    -ms-transition: all 500ms ease-in;
-    -o-transition: all 500ms ease-in;
-}
-img:hover{
-    transform: scale(0.9);
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    transition: all 600ms ease-out;
-    -webkit-transition: all 600ms ease-out;
-    -moz-transition: all 600ms ease-out;
-    -ms-transition: all 600ms ease-out;
-    -o-transition: all 600ms ease-out;
-}
-
+/* City landing page */
 .paris {
     background-image: url('/images/paris.jpg');
 }
+
 .kyoto {
     background-image: url('/images/kyoto.jpg');
 }
+
 .lasvegas {
     background-image: url('/images/las-vegas.jpg');
 }
+
 .sydney {
     background-image: url('/images/sydney.jpg');
 }
+
 .hongkong {
     background-image: url('/images/hong-kong.jpg');
 }
 
-.hongkong,.paris,.kyoto,.lasvegas,.sydney {
+.paris,
+.kyoto,
+.lasvegas,
+.sydney,
+.hongkong {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
