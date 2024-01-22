@@ -2,34 +2,35 @@
 
 namespace App\Controller;
 
+use App\Form\FavoriteType;
 use App\Repository\RoomRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
-
-#[Route('/r')]
+#[Route('/r')] // prefix all room routes with /r
 class RoomController extends AbstractController
 {
     #[Route('/', name: 'app_room')]
     public function index(
         RoomRepository $roomRepository,
         PaginatorInterface $paginator,
-        Request $request
-    ): Response
-    {
+        Request $request,
+    ): Response {
         $pagination = $paginator->paginate(
             $roomRepository->findAll(), // All rooms
             $request->query->getInt('page', 1), // Check page number
-            12 /*limit per page*/
+            12 // Items per page
         );
+        $form = $this->createForm(FavoriteType::class);
         return $this->render('room/index.html.twig', [
             'rooms' => $pagination,
+            'checkFavorite' => $form,
             'hostRooms' => $roomRepository->findBy(
                 ['host' => $this->getUser()]
-                )
+            )
         ]);
     }
 }
