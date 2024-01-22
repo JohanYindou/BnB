@@ -27,20 +27,20 @@
 								<div
 									class="img-overlay p-2 position-absolute h-100 w-100 d-flex flex-column justify-content-between rounded-4">
 									{# Form favorite #}
-									<form method="POST" class="w-100 text-end">
-										<input
-										type="hidden" name="room" value={{ item.id }}>
-										{# TODO: Conditional input:hidden for add or remove favorite #}
-										<button type="submit" class="bg-transparent rounded-pill border-0 bg-light">
-											{% set favHeart = '<i class="bi bi-heart text-white"></i>' %}
-											{% for fav in item.favorites %}
-												{% if fav.traveler == app.user %}
-													{% set favHeart = '<i class="bi bi-heart-fill text-danger"></i>' %}
-												{% endif %}
-											{% endfor %}
-											{{ favHeart|raw }}
-										</button>
-									</form>
+									{{ form_start(checkFavorite) }}
+									{{ form_widget(checkFavorite.name, 
+											{ 'value': item.id } 
+										)}}
+									<button type="submit" class="bg-transparent rounded-pill border-0 bg-light">
+										{% set favHeart = '<i class="bi bi-heart text-white"></i>' %}
+										{% for fav in item.favorites %}
+											{% if fav.traveler == app.user %}
+												{% set favHeart = '<i class="bi bi-heart-fill text-danger"></i>' %}
+											{% endif %}
+										{% endfor %}
+										{{ favHeart|raw }}
+									</button>
+									{{ form_end(checkFavorite) }}
 									{# Host info : img + firstname #}
 									<div class="card-host-info d-flex gap-2 align-items-center">
 										<img src={{ item.host.image }} alt="{{ item.host.firstname }} {{item.host.lastname }}" class="rounded-pill">
@@ -106,5 +106,4 @@
 	<div class="d-flex justify-content-center my-5">
 		{{ knp_pagination_render(rooms) }}
 	</div>
-
 {% endblock %}
