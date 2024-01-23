@@ -29,8 +29,6 @@
 	{# Host more infos #}
 	<div>
 		{% if is_granted('ROLE_HOST') %}
-			TODO
-		{% else %}
 			<p class="fw-bold mt-3 mb-1 text-dark">{{ item.title|slice(0,30) }}...</p>
 			<p class="text-dark mb-1">start from
 				<span class="fw-bold">{{ item.price }}€</span>
@@ -38,6 +36,8 @@
 			<p class="text-dark">Details
 				<i class="bi bi-arrow-right"></i>
 			</p>
+		{% else %}
+			TODO
 		{% endif %}
 	</div>
 </div>
