@@ -173,6 +173,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    // Fusion : Firstname + Lastname
+    public function getFullname():string 
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
+    // Current year minus year birthyear to get age 
+    public function getAge():?int
+    {
+        return date('Y') - $this->birthyear;
+    }
     public function getBirthyear(): ?int
     {
         return $this->birthyear;
