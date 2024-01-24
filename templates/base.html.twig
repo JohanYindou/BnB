@@ -39,7 +39,9 @@
 			</div>
 		</header>
 		<main>
-			{% block body %}{% endblock %}
+			{% block body %}
+				{{ include('components/flash-message.html.twig') }}
+			{% endblock %}
 		</main>
 		<footer class="d-flex gap-3 w-100 justify-content-center">
 			<a href={{ path('paris') }} class="text-decoration-none text-white">Paris</a>
