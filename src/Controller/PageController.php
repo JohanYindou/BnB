@@ -2,63 +2,59 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\ProfileType;
+use App\Service\ProfileService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends AbstractController
 {
-    #[Route('/paris', name: 'paris', methods: ['GET'])]
+    #[Route('/', name: 'paris', methods: ['GET'])]
     public function paris(): Response
     {
         return $this->render('page/city.html.twig', [
             'title' => 'Paris',
-            'background' => 'paris'
+            'background' => 'paris',
         ]);
     }
+
     #[Route('/lasvegas', name: 'lasvegas', methods: ['GET'])]
     public function lasvegas(): Response
     {
         return $this->render('page/city.html.twig', [
             'title' => 'Las Vegas',
-            'background' => 'lasvegas'
+            'background' => 'lasvegas',
         ]);
     }
-    #[Route('/kyoto', name:'kyoto', methods: ['GET'])]
+
+    #[Route('/kyoto', name: 'kyoto', methods: ['GET'])]
     public function kyoto(): Response
     {
         return $this->render('page/city.html.twig', [
             'title' => 'Kyoto',
             'subtitle' => '京都市',
-            'background' => 'kyoto'
+            'background' => 'kyoto',
         ]);
     }
-    #[Route('/sydney', name:'sydney', methods: ['GET'])]
+
+    #[Route('/sydney', name: 'sydney', methods: ['GET'])]
     public function sydney(): Response
     {
         return $this->render('page/city.html.twig', [
             'title' => 'Sydney',
-            'background' => 'sydney'
+            'background' => 'sydney',
         ]);
     }
-    #[Route('/hongkong', name:'hongkong', methods: ['GET'])]
+    #[Route('/hongkong', name: 'hongkong', methods: ['GET'])]
     public function hongkong(): Response
     {
         return $this->render('page/city.html.twig', [
-            'title' => 'Hongkong',
+            'title' => 'Hong Kong',
             'subtitle' => '香港',
-            'background' => 'hongkong'
-        ]);
-    }
-
-    /**
-     *  User account route for display it's own data on the app
-     */
-    #[Route('/account', name:'account', methods: ['GET','POST'])]
-    public function account(): Response
-    {
-        return $this->render('page/account.html.twig', [
-            'title' => 'Mon compte',
+            'background' => 'hongkong',
         ]);
     }
 }
