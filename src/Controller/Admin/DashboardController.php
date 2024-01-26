@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Review;
 use App\Entity\Room;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -48,10 +49,9 @@ class DashboardController extends AbstractDashboardController
     {
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::section('Assets');
         yield MenuItem::linkToCrud('Locations', 'fas fa-cubes', Room::class);
-        yield MenuItem::section('Users');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users',User::class);
+        yield MenuItem::linkToCrud('Reviews', 'fas fa-star',Review::class);
         yield MenuItem::section();
         yield MenuItem::linkToRoute('Back to app', 'fas fa-arrow-left', 'app_room');
     }
